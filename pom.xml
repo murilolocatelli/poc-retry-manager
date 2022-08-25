@@ -4,7 +4,7 @@
 
     <groupId>com.picpay.credit</groupId>
     <artifactId>retry-manager-parent</artifactId>
-    <version>0.0.0</version><!-- ms-version -->
+    <version>1.0.0</version><!-- ms-version -->
 
     <packaging>pom</packaging>
 
