@@ -1,0 +1,27 @@
+name: Release
+on: workflow_dispatch
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+      - name: Install semantic-release/exec
+        run: npm install @semantic-release/exec
+      - name: Install semantic-release/changelog
+        run: npm install @semantic-release/changelog
+      - name: Install google/semantic-release-replace-plugin
+        run: npm install @google/semantic-release-replace-plugin
+      - name: Install semantic-release/git
+        run: npm install @semantic-release/git
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release@19
